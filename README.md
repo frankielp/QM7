@@ -1,2 +1,1 @@
-# quantummachine
- Quantum mechanical calculation estimation
+# Quantum mechanical calculation estimation

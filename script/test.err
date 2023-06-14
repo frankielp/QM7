@@ -1,0 +1,9 @@
+Lmod Warning: The environment MODULEPATH has been changed in unexpected ways.
+Lmod is unable to use given MODULEPATH. It is using:
+
+"/sw/spack/share/spack/modules/linux-ubuntu20.04-skylake:/sw/modules/all".
+
+Please use "module use ..." to change MODULEPATH instead. 
+
+
+slurmstepd: error: *** JOB 12537 ON selab2 CANCELLED AT 2023-06-14T11:13:28 ***

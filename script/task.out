@@ -1,0 +1,188 @@
+Wed Jun 14 14:50:00 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 515.105.01   Driver Version: 515.105.01   CUDA Version: 11.7     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0 Off |                  N/A |
+| 30%   37C    P8    27W / 350W |      0MiB / 24576MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2021 NVIDIA Corporation
+Built on Thu_Nov_18_09:45:30_PST_2021
+Cuda compilation tools, release 11.5, V11.5.119
+Build cuda_11.5.r11.5/compiler.30672275_0
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/condabin/conda
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/bin/conda
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/bin/conda-env
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/bin/activate
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/bin/deactivate
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/etc/profile.d/conda.sh
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/etc/fish/conf.d/conda.fish
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/shell/condabin/Conda.psm1
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/shell/condabin/conda-hook.ps1
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/lib/python3.8/site-packages/xontrib/conda.xsh
+no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/etc/profile.d/conda.csh
+no change     /home/lpnquynh/.bashrc
+No action taken.
+Requirement already satisfied: numpy in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 1)) (1.22.3)
+Requirement already satisfied: scipy in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 2)) (1.10.1)
+Requirement already satisfied: tqdm in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 3)) (4.65.0)
+Requirement already satisfied: pandas in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 4)) (2.0.2)
+Requirement already satisfied: networkx in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 5)) (3.1)
+Requirement already satisfied: matplotlib in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 6)) (3.7.1)
+Requirement already satisfied: seaborn in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 7)) (0.12.2)
+Requirement already satisfied: tensorflow in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 8)) (2.12.0)
+Requirement already satisfied: torch in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 9)) (2.0.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from pandas->-r ../requirements.txt (line 4)) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from pandas->-r ../requirements.txt (line 4)) (2023.3)
+Requirement already satisfied: tzdata>=2022.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from pandas->-r ../requirements.txt (line 4)) (2023.3)
+Requirement already satisfied: contourpy>=1.0.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (1.0.7)
+Requirement already satisfied: cycler>=0.10 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (0.11.0)
+Requirement already satisfied: fonttools>=4.22.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (4.40.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (1.4.4)
+Requirement already satisfied: packaging>=20.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (23.1)
+Requirement already satisfied: pillow>=6.2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (9.5.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (3.0.9)
+Requirement already satisfied: importlib-resources>=3.2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (5.12.0)
+Requirement already satisfied: absl-py>=1.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.4.0)
+Requirement already satisfied: astunparse>=1.6.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.6.3)
+Requirement already satisfied: flatbuffers>=2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (23.5.26)
+Requirement already satisfied: gast<=0.4.0,>=0.2.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: google-pasta>=0.1.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (0.2.0)
+Requirement already satisfied: grpcio<2.0,>=1.24.3 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.54.2)
+Requirement already satisfied: h5py>=2.9.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (3.8.0)
+Requirement already satisfied: jax>=0.3.15 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (0.4.12)
+Requirement already satisfied: keras<2.13,>=2.12.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (2.12.0)
+Requirement already satisfied: libclang>=13.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (16.0.0)
+Requirement already satisfied: opt-einsum>=2.3.2 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (3.3.0)
+Requirement already satisfied: protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<5.0.0dev,>=3.20.3 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (4.23.2)
+Requirement already satisfied: setuptools in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (67.8.0)
+Requirement already satisfied: six>=1.12.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.16.0)
+Requirement already satisfied: tensorboard<2.13,>=2.12 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (2.12.3)
+Requirement already satisfied: tensorflow-estimator<2.13,>=2.12.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (2.12.0)
+Requirement already satisfied: termcolor>=1.1.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (2.3.0)
+Requirement already satisfied: typing-extensions>=3.6.6 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (4.6.3)
+Requirement already satisfied: wrapt<1.15,>=1.11.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.14.1)
+Requirement already satisfied: tensorflow-io-gcs-filesystem>=0.23.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (0.32.0)
+Requirement already satisfied: filelock in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (3.12.2)
+Requirement already satisfied: sympy in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (1.12)
+Requirement already satisfied: jinja2 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.7.99 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.99)
+Requirement already satisfied: nvidia-cuda-runtime-cu11==11.7.99 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.99)
+Requirement already satisfied: nvidia-cuda-cupti-cu11==11.7.101 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.101)
+Requirement already satisfied: nvidia-cudnn-cu11==8.5.0.96 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (8.5.0.96)
+Requirement already satisfied: nvidia-cublas-cu11==11.10.3.66 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.10.3.66)
+Requirement already satisfied: nvidia-cufft-cu11==10.9.0.58 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (10.9.0.58)
+Requirement already satisfied: nvidia-curand-cu11==10.2.10.91 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (10.2.10.91)
+Requirement already satisfied: nvidia-cusolver-cu11==11.4.0.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.4.0.1)
+Requirement already satisfied: nvidia-cusparse-cu11==11.7.4.91 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.4.91)
+Requirement already satisfied: nvidia-nccl-cu11==2.14.3 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (2.14.3)
+Requirement already satisfied: nvidia-nvtx-cu11==11.7.91 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.91)
+Requirement already satisfied: triton==2.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (2.0.0)
+Requirement already satisfied: wheel in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from nvidia-cublas-cu11==11.10.3.66->torch->-r ../requirements.txt (line 9)) (0.38.4)
+Requirement already satisfied: cmake in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from triton==2.0.0->torch->-r ../requirements.txt (line 9)) (3.26.4)
+Requirement already satisfied: lit in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from triton==2.0.0->torch->-r ../requirements.txt (line 9)) (16.0.5.post0)
+Requirement already satisfied: zipp>=3.1.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from importlib-resources>=3.2.0->matplotlib->-r ../requirements.txt (line 6)) (3.15.0)
+Requirement already satisfied: ml-dtypes>=0.1.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from jax>=0.3.15->tensorflow->-r ../requirements.txt (line 8)) (0.2.0)
+Requirement already satisfied: importlib-metadata>=4.6 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from jax>=0.3.15->tensorflow->-r ../requirements.txt (line 8)) (6.6.0)
+Requirement already satisfied: google-auth<3,>=1.6.3 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (2.19.1)
+Requirement already satisfied: google-auth-oauthlib<1.1,>=0.5 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (1.0.0)
+Requirement already satisfied: markdown>=2.6.8 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (3.4.3)
+Requirement already satisfied: requests<3,>=2.21.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (2.31.0)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (0.7.0)
+Requirement already satisfied: werkzeug>=1.0.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (2.3.6)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from jinja2->torch->-r ../requirements.txt (line 9)) (2.1.3)
+Requirement already satisfied: mpmath>=0.19 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from sympy->torch->-r ../requirements.txt (line 9)) (1.3.0)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (5.3.1)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (0.3.0)
+Requirement already satisfied: rsa<5,>=3.1.4 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (4.9)
+Requirement already satisfied: urllib3<2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (1.26.16)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth-oauthlib<1.1,>=0.5->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (1.3.1)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from requests<3,>=2.21.0->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (3.1.0)
+Requirement already satisfied: idna<4,>=2.5 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from requests<3,>=2.21.0->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (3.4)
+Requirement already satisfied: certifi>=2017.4.17 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from requests<3,>=2.21.0->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (2023.5.7)
+Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (0.5.0)
+Requirement already satisfied: oauthlib>=3.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<1.1,>=0.5->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (3.2.2)
+Load data
+Fold  0
+Reset trainable parameters of layer = Linear(in_features=322, out_features=400, bias=True)
+Reset trainable parameters of layer = Linear(in_features=400, out_features=100, bias=True)
+Reset trainable parameters of layer = Linear(in_features=100, out_features=1, bias=True)
+[1342.563313123915, 951.8233422173394] [1617.0946248372395]
+[1342.563313123915, 951.8233422173394, 1183.6441274007161, 339.9520789252387] [1617.0946248372395, 597.1668955485026]
+[1342.563313123915, 951.8233422173394, 1183.6441274007161, 339.9520789252387, 520.8605180528428, 333.9949730767144] [1617.0946248372395, 597.1668955485026, 365.87210845947266]
+[1342.563313123915, 951.8233422173394, 1183.6441274007161, 339.9520789252387, 520.8605180528428, 333.9949730767144, 384.226661851671, 337.3958292643229] [1617.0946248372395, 597.1668955485026, 365.87210845947266, 279.4959131876628]
+[1342.563313123915, 951.8233422173394, 1183.6441274007161, 339.9520789252387, 520.8605180528428, 333.9949730767144, 384.226661851671, 337.3958292643229, 315.1487650553385, 313.2332387288412] [1617.0946248372395, 597.1668955485026, 365.87210845947266, 279.4959131876628, 265.8054478963216]
+[1342.563313123915, 951.8233422173394, 1183.6441274007161, 339.9520789252387, 520.8605180528428, 333.9949730767144, 384.226661851671, 337.3958292643229, 315.1487650553385, 313.2332387288412, 298.4383548312717, 323.27974819607203] [1617.0946248372395, 597.1668955485026, 365.87210845947266, 279.4959131876628, 265.8054478963216, 287.5290807088216]
+[1342.563313123915, 951.8233422173394, 1183.6441274007161, 339.9520789252387, 520.8605180528428, 333.9949730767144, 384.226661851671, 337.3958292643229, 315.1487650553385, 313.2332387288412, 298.4383548312717, 323.27974819607203, 262.74816046820746, 214.83189866807726] [1617.0946248372395, 597.1668955485026, 365.87210845947266, 279.4959131876628, 265.8054478963216, 287.5290807088216, 196.94513448079428]
+[1342.563313123915, 951.8233422173394, 1183.6441274007161, 339.9520789252387, 520.8605180528428, 333.9949730767144, 384.226661851671, 337.3958292643229, 315.1487650553385, 313.2332387288412, 298.4383548312717, 323.27974819607203, 262.74816046820746, 214.83189866807726, 192.74686381022136, 182.6466796875] [1617.0946248372395, 597.1668955485026, 365.87210845947266, 279.4959131876628, 265.8054478963216, 287.5290807088216, 196.94513448079428, 180.57839075724283]
+[1342.563313123915, 951.8233422173394, 1183.6441274007161, 339.9520789252387, 520.8605180528428, 333.9949730767144, 384.226661851671, 337.3958292643229, 315.1487650553385, 313.2332387288412, 298.4383548312717, 323.27974819607203, 262.74816046820746, 214.83189866807726, 192.74686381022136, 182.6466796875, 179.631635538737, 179.13622673882378] [1617.0946248372395, 597.1668955485026, 365.87210845947266, 279.4959131876628, 265.8054478963216, 287.5290807088216, 196.94513448079428, 180.57839075724283, 180.02978006998697]
+[1342.563313123915, 951.8233422173394, 1183.6441274007161, 339.9520789252387, 520.8605180528428, 333.9949730767144, 384.226661851671, 337.3958292643229, 315.1487650553385, 313.2332387288412, 298.4383548312717, 323.27974819607203, 262.74816046820746, 214.83189866807726, 192.74686381022136, 182.6466796875, 179.631635538737, 179.13622673882378, 179.03062913682726, 179.00870700412327] [1617.0946248372395, 597.1668955485026, 365.87210845947266, 279.4959131876628, 265.8054478963216, 287.5290807088216, 196.94513448079428, 180.57839075724283, 180.02978006998697, 180.06223169962564]
+Fold  1
+Reset trainable parameters of layer = Linear(in_features=322, out_features=400, bias=True)
+Reset trainable parameters of layer = Linear(in_features=400, out_features=100, bias=True)
+Reset trainable parameters of layer = Linear(in_features=100, out_features=1, bias=True)
+[1390.6397471110026, 1829.7735575358072] [2044.5621439615886]
+[1390.6397471110026, 1829.7735575358072, 1802.9250366210938, 415.7826426188151] [2044.5621439615886, 649.5629831949869]
+[1390.6397471110026, 1829.7735575358072, 1802.9250366210938, 415.7826426188151, 496.1357225206163, 521.4551862928603] [2044.5621439615886, 649.5629831949869, 174.75455856323242]
+[1390.6397471110026, 1829.7735575358072, 1802.9250366210938, 415.7826426188151, 496.1357225206163, 521.4551862928603, 247.59113328721787, 232.23863796657986] [2044.5621439615886, 649.5629831949869, 174.75455856323242, 236.88970057169595]
+[1390.6397471110026, 1829.7735575358072, 1802.9250366210938, 415.7826426188151, 496.1357225206163, 521.4551862928603, 247.59113328721787, 232.23863796657986, 263.89108412000866, 285.42437913682727] [2044.5621439615886, 649.5629831949869, 174.75455856323242, 236.88970057169595, 245.2426897684733]
+[1390.6397471110026, 1829.7735575358072, 1802.9250366210938, 415.7826426188151, 496.1357225206163, 521.4551862928603, 247.59113328721787, 232.23863796657986, 263.89108412000866, 285.42437913682727, 292.76256001790364, 301.78775092230904] [2044.5621439615886, 649.5629831949869, 174.75455856323242, 236.88970057169595, 245.2426897684733, 278.5040868123372]
+[1390.6397471110026, 1829.7735575358072, 1802.9250366210938, 415.7826426188151, 496.1357225206163, 521.4551862928603, 247.59113328721787, 232.23863796657986, 263.89108412000866, 285.42437913682727, 292.76256001790364, 301.78775092230904, 250.71345926920574, 210.6397416856554] [2044.5621439615886, 649.5629831949869, 174.75455856323242, 236.88970057169595, 245.2426897684733, 278.5040868123372, 196.19938786824545]
+[1390.6397471110026, 1829.7735575358072, 1802.9250366210938, 415.7826426188151, 496.1357225206163, 521.4551862928603, 247.59113328721787, 232.23863796657986, 263.89108412000866, 285.42437913682727, 292.76256001790364, 301.78775092230904, 250.71345926920574, 210.6397416856554, 190.14684346516927, 182.44779696994357] [2044.5621439615886, 649.5629831949869, 174.75455856323242, 236.88970057169595, 245.2426897684733, 278.5040868123372, 196.19938786824545, 177.7060228983561]
+[1390.6397471110026, 1829.7735575358072, 1802.9250366210938, 415.7826426188151, 496.1357225206163, 521.4551862928603, 247.59113328721787, 232.23863796657986, 263.89108412000866, 285.42437913682727, 292.76256001790364, 301.78775092230904, 250.71345926920574, 210.6397416856554, 190.14684346516927, 182.44779696994357, 179.6677480061849, 178.6459757486979] [2044.5621439615886, 649.5629831949869, 174.75455856323242, 236.88970057169595, 245.2426897684733, 278.5040868123372, 196.19938786824545, 177.7060228983561, 174.91091028849283]
+[1390.6397471110026, 1829.7735575358072, 1802.9250366210938, 415.7826426188151, 496.1357225206163, 521.4551862928603, 247.59113328721787, 232.23863796657986, 263.89108412000866, 285.42437913682727, 292.76256001790364, 301.78775092230904, 250.71345926920574, 210.6397416856554, 190.14684346516927, 182.44779696994357, 179.6677480061849, 178.6459757486979, 178.47035217285156, 178.46578403049045] [2044.5621439615886, 649.5629831949869, 174.75455856323242, 236.88970057169595, 245.2426897684733, 278.5040868123372, 196.19938786824545, 177.7060228983561, 174.91091028849283, 174.6561419169108]
+Fold  2
+Reset trainable parameters of layer = Linear(in_features=322, out_features=400, bias=True)
+Reset trainable parameters of layer = Linear(in_features=400, out_features=100, bias=True)
+Reset trainable parameters of layer = Linear(in_features=100, out_features=1, bias=True)
+[1439.6938656277127, 1845.104364352756] [2160.5479125976562]
+[1439.6938656277127, 1845.104364352756, 1759.157687717014, 349.8803460015191] [2160.5479125976562, 548.6061884562174]
+[1439.6938656277127, 1845.104364352756, 1759.157687717014, 349.8803460015191, 407.84830356174047, 592.0067867702908] [2160.5479125976562, 548.6061884562174, 177.03547159830728]
+[1439.6938656277127, 1845.104364352756, 1759.157687717014, 349.8803460015191, 407.84830356174047, 592.0067867702908, 242.96995713975696, 241.50652635362414] [2160.5479125976562, 548.6061884562174, 177.03547159830728, 239.1493911743164]
+[1439.6938656277127, 1845.104364352756, 1759.157687717014, 349.8803460015191, 407.84830356174047, 592.0067867702908, 242.96995713975696, 241.50652635362414, 275.2099368625217, 279.3746656629774] [2160.5479125976562, 548.6061884562174, 177.03547159830728, 239.1493911743164, 227.32500966389975]
+[1439.6938656277127, 1845.104364352756, 1759.157687717014, 349.8803460015191, 407.84830356174047, 592.0067867702908, 242.96995713975696, 241.50652635362414, 275.2099368625217, 279.3746656629774, 280.6500569661458, 281.2531785753038] [2160.5479125976562, 548.6061884562174, 177.03547159830728, 239.1493911743164, 227.32500966389975, 267.5694224039714]
+[1439.6938656277127, 1845.104364352756, 1759.157687717014, 349.8803460015191, 407.84830356174047, 592.0067867702908, 242.96995713975696, 241.50652635362414, 275.2099368625217, 279.3746656629774, 280.6500569661458, 281.2531785753038, 236.62461649576824, 203.0982228597005] [2160.5479125976562, 548.6061884562174, 177.03547159830728, 239.1493911743164, 227.32500966389975, 267.5694224039714, 194.81447982788086]
+[1439.6938656277127, 1845.104364352756, 1759.157687717014, 349.8803460015191, 407.84830356174047, 592.0067867702908, 242.96995713975696, 241.50652635362414, 275.2099368625217, 279.3746656629774, 280.6500569661458, 281.2531785753038, 236.62461649576824, 203.0982228597005, 187.03455980088975, 181.29173109266492] [2160.5479125976562, 548.6061884562174, 177.03547159830728, 239.1493911743164, 227.32500966389975, 267.5694224039714, 194.81447982788086, 179.9349161783854]
+[1439.6938656277127, 1845.104364352756, 1759.157687717014, 349.8803460015191, 407.84830356174047, 592.0067867702908, 242.96995713975696, 241.50652635362414, 275.2099368625217, 279.3746656629774, 280.6500569661458, 281.2531785753038, 236.62461649576824, 203.0982228597005, 187.03455980088975, 181.29173109266492, 178.94603271484374, 178.18073052300346] [2160.5479125976562, 548.6061884562174, 177.03547159830728, 239.1493911743164, 227.32500966389975, 267.5694224039714, 194.81447982788086, 179.9349161783854, 177.11980692545572]
+[1439.6938656277127, 1845.104364352756, 1759.157687717014, 349.8803460015191, 407.84830356174047, 592.0067867702908, 242.96995713975696, 241.50652635362414, 275.2099368625217, 279.3746656629774, 280.6500569661458, 281.2531785753038, 236.62461649576824, 203.0982228597005, 187.03455980088975, 181.29173109266492, 178.94603271484374, 178.18073052300346, 178.02966579861112, 177.9960411919488] [2160.5479125976562, 548.6061884562174, 177.03547159830728, 239.1493911743164, 227.32500966389975, 267.5694224039714, 194.81447982788086, 179.9349161783854, 177.11980692545572, 176.77739715576172]
+Fold  3
+Reset trainable parameters of layer = Linear(in_features=322, out_features=400, bias=True)
+Reset trainable parameters of layer = Linear(in_features=400, out_features=100, bias=True)
+Reset trainable parameters of layer = Linear(in_features=100, out_features=1, bias=True)
+[1386.0888821072049, 1592.5876180013022] [1595.8949584960938]
+[1386.0888821072049, 1592.5876180013022, 1423.8518608940972, 299.628758070204] [1595.8949584960938, 391.8861719767253]
+[1386.0888821072049, 1592.5876180013022, 1423.8518608940972, 299.628758070204, 296.36007927788626, 439.1822031656901] [1595.8949584960938, 391.8861719767253, 406.1278584798177]
+[1386.0888821072049, 1592.5876180013022, 1423.8518608940972, 299.628758070204, 296.36007927788626, 439.1822031656901, 453.32128261990016, 403.62240532769096] [1595.8949584960938, 391.8861719767253, 406.1278584798177, 237.19387435913086]
+[1386.0888821072049, 1592.5876180013022, 1423.8518608940972, 299.628758070204, 296.36007927788626, 439.1822031656901, 453.32128261990016, 403.62240532769096, 315.05067138671876, 326.08562927246095] [1595.8949584960938, 391.8861719767253, 406.1278584798177, 237.19387435913086, 254.3228022257487]
+[1386.0888821072049, 1592.5876180013022, 1423.8518608940972, 299.628758070204, 296.36007927788626, 439.1822031656901, 453.32128261990016, 403.62240532769096, 315.05067138671876, 326.08562927246095, 309.1417711046007, 320.08079596625436] [1595.8949584960938, 391.8861719767253, 406.1278584798177, 237.19387435913086, 254.3228022257487, 293.03614298502606]
+[1386.0888821072049, 1592.5876180013022, 1423.8518608940972, 299.628758070204, 296.36007927788626, 439.1822031656901, 453.32128261990016, 403.62240532769096, 315.05067138671876, 326.08562927246095, 309.1417711046007, 320.08079596625436, 257.693403116862, 209.75446268717448] [1595.8949584960938, 391.8861719767253, 406.1278584798177, 237.19387435913086, 254.3228022257487, 293.03614298502606, 204.98216501871744]
+[1386.0888821072049, 1592.5876180013022, 1423.8518608940972, 299.628758070204, 296.36007927788626, 439.1822031656901, 453.32128261990016, 403.62240532769096, 315.05067138671876, 326.08562927246095, 309.1417711046007, 320.08079596625436, 257.693403116862, 209.75446268717448, 187.3074205186632, 179.81411878797743] [1595.8949584960938, 391.8861719767253, 406.1278584798177, 237.19387435913086, 254.3228022257487, 293.03614298502606, 204.98216501871744, 188.4598477681478]
+[1386.0888821072049, 1592.5876180013022, 1423.8518608940972, 299.628758070204, 296.36007927788626, 439.1822031656901, 453.32128261990016, 403.62240532769096, 315.05067138671876, 326.08562927246095, 309.1417711046007, 320.08079596625436, 257.693403116862, 209.75446268717448, 187.3074205186632, 179.81411878797743, 177.26557176378037, 176.66874050564235] [1595.8949584960938, 391.8861719767253, 406.1278584798177, 237.19387435913086, 254.3228022257487, 293.03614298502606, 204.98216501871744, 188.4598477681478, 186.4485321044922]
+[1386.0888821072049, 1592.5876180013022, 1423.8518608940972, 299.628758070204, 296.36007927788626, 439.1822031656901, 453.32128261990016, 403.62240532769096, 315.05067138671876, 326.08562927246095, 309.1417711046007, 320.08079596625436, 257.693403116862, 209.75446268717448, 187.3074205186632, 179.81411878797743, 177.26557176378037, 176.66874050564235, 176.58596767849392, 176.58008490668402] [1595.8949584960938, 391.8861719767253, 406.1278584798177, 237.19387435913086, 254.3228022257487, 293.03614298502606, 204.98216501871744, 188.4598477681478, 186.4485321044922, 186.27911758422852]
+Fold  4
+Reset trainable parameters of layer = Linear(in_features=322, out_features=400, bias=True)
+Reset trainable parameters of layer = Linear(in_features=400, out_features=100, bias=True)
+Reset trainable parameters of layer = Linear(in_features=100, out_features=1, bias=True)
+[1684.1952345106338, 796.6737491183811] [1068.4408264160156]
+[1684.1952345106338, 796.6737491183811, 699.2234096950955, 957.940082804362] [1068.4408264160156, 245.56609598795572]
+[1684.1952345106338, 796.6737491183811, 699.2234096950955, 957.940082804362, 424.2691165500217, 484.05958455403646] [1068.4408264160156, 245.56609598795572, 337.64090220133465]
+[1684.1952345106338, 796.6737491183811, 699.2234096950955, 957.940082804362, 424.2691165500217, 484.05958455403646, 445.5002539740668, 430.88186611599394] [1068.4408264160156, 245.56609598795572, 337.64090220133465, 327.373296101888]
+[1684.1952345106338, 796.6737491183811, 699.2234096950955, 957.940082804362, 424.2691165500217, 484.05958455403646, 445.5002539740668, 430.88186611599394, 423.39190470377605, 412.9507541232639] [1068.4408264160156, 245.56609598795572, 337.64090220133465, 327.373296101888, 320.07415262858075]
+[1684.1952345106338, 796.6737491183811, 699.2234096950955, 957.940082804362, 424.2691165500217, 484.05958455403646, 445.5002539740668, 430.88186611599394, 423.39190470377605, 412.9507541232639, 411.5151387532552, 471.09927842881945] [1068.4408264160156, 245.56609598795572, 337.64090220133465, 327.373296101888, 320.07415262858075, 413.9867121378581]
+[1684.1952345106338, 796.6737491183811, 699.2234096950955, 957.940082804362, 424.2691165500217, 484.05958455403646, 445.5002539740668, 430.88186611599394, 423.39190470377605, 412.9507541232639, 411.5151387532552, 471.09927842881945, 352.45316636827255, 243.49275614420574] [1068.4408264160156, 245.56609598795572, 337.64090220133465, 327.373296101888, 320.07415262858075, 413.9867121378581, 211.77552922566733]
+[1684.1952345106338, 796.6737491183811, 699.2234096950955, 957.940082804362, 424.2691165500217, 484.05958455403646, 445.5002539740668, 430.88186611599394, 423.39190470377605, 412.9507541232639, 411.5151387532552, 471.09927842881945, 352.45316636827255, 243.49275614420574, 193.162397257487, 179.57095947265626] [1068.4408264160156, 245.56609598795572, 337.64090220133465, 327.373296101888, 320.07415262858075, 413.9867121378581, 211.77552922566733, 181.23067347208658]
+[1684.1952345106338, 796.6737491183811, 699.2234096950955, 957.940082804362, 424.2691165500217, 484.05958455403646, 445.5002539740668, 430.88186611599394, 423.39190470377605, 412.9507541232639, 411.5151387532552, 471.09927842881945, 352.45316636827255, 243.49275614420574, 193.162397257487, 179.57095947265626, 177.1024214002821, 176.8505411783854] [1068.4408264160156, 245.56609598795572, 337.64090220133465, 327.373296101888, 320.07415262858075, 413.9867121378581, 211.77552922566733, 181.23067347208658, 180.35526657104492]
+[1684.1952345106338, 796.6737491183811, 699.2234096950955, 957.940082804362, 424.2691165500217, 484.05958455403646, 445.5002539740668, 430.88186611599394, 423.39190470377605, 412.9507541232639, 411.5151387532552, 471.09927842881945, 352.45316636827255, 243.49275614420574, 193.162397257487, 179.57095947265626, 177.1024214002821, 176.8505411783854, 176.82627733018663, 176.83399420844185] [1068.4408264160156, 245.56609598795572, 337.64090220133465, 327.373296101888, 320.07415262858075, 413.9867121378581, 211.77552922566733, 181.23067347208658, 180.35526657104492, 180.36658223470053]

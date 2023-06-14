@@ -1,5 +1,5 @@
 import os,pickle,sys,numpy,nn,copy,scipy,scipy.io
-
+from tqdm import tqdm
 # --------------------------------------------
 # Parameters
 # --------------------------------------------
@@ -13,13 +13,13 @@ hist  = 0.1    # fraction of the history to be remembered
 # Load data
 # --------------------------------------------
 numpy.random.seed(seed)
-if not os.path.exists('qm7.mat'): os.system('wget http://www.quantum-machine.org/data/qm7.mat')
-dataset = scipy.io.loadmat('qm7.mat')
+if not os.path.exists('../../qm7.mat'): os.system('wget http://www.quantum-machine.org/data/qm7.mat')
+dataset = scipy.io.loadmat('../../qm7.mat')
 
 # --------------------------------------------
 # Extract training data
 # --------------------------------------------
-P = dataset['P'][range(0,split)+range(split+1,5)].flatten()
+P = dataset['P'][list(range(0, split)) + list(range(split + 1, 5))].flatten()
 X = dataset['X'][P]
 T = dataset['T'][0,P]
 
@@ -34,7 +34,7 @@ nnavg = copy.deepcopy(nnsgd)
 # --------------------------------------------
 # Train the neural network
 # --------------------------------------------
-for i in range(1,1000001):
+for i in tqdm(range(1,1000001)):
 
 	if i > 0:     lr = 0.001  # learning rate
 	if i > 500:   lr = 0.0025
@@ -48,5 +48,5 @@ for i in range(1,1000001):
 	nnavg.average(nnsgd,(1/hist)/((1/hist)+i))
 	nnavg.nbiter = i
 
-	if i % 100 == 0: pickle.dump(nnavg,open('nn-%d.pkl'%split,'w'),pickle.HIGHEST_PROTOCOL)
+	if i % 100 == 0: pickle.dump(nnavg,open('nn-%d.pkl'%split,'wb'),pickle.HIGHEST_PROTOCOL)
 

@@ -25,7 +25,7 @@ The project requires the following dependencies:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/frankielp/QM7
    ```
 
 2. Install the required dependencies:

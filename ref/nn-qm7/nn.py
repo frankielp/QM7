@@ -1,5 +1,6 @@
 import numpy
 
+
 class Module:
 	def update(self,lr): pass
 	def average(self,nn,a): pass

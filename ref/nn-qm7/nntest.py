@@ -1,4 +1,11 @@
-import os,pickle,sys,numpy,copy,scipy,scipy.io
+import copy
+import os
+import pickle
+import sys
+
+import numpy
+import scipy
+import scipy.io
 
 # --------------------------------------------
 # Parameters

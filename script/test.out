@@ -1,4 +1,4 @@
-Wed Jun 14 08:00:14 2023       
+Wed Jun 14 17:20:52 2023       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 515.105.01   Driver Version: 515.105.01   CUDA Version: 11.7     |
 |-------------------------------+----------------------+----------------------+
@@ -7,7 +7,7 @@ Wed Jun 14 08:00:14 2023
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  NVIDIA GeForce ...  Off  | 00000000:02:00.0 Off |                  N/A |
-| 62%   59C    P0    65W / 280W |      0MiB / 11264MiB |      0%      Default |
+|  0%   43C    P8    11W / 280W |      0MiB / 11264MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -36,91 +36,14 @@ no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-
 no change     /sw/spack/opt/spack/linux-ubuntu20.04-skylake/gcc-9.3.0/anaconda3-2021.05-r6itwa7dvyh4gisucvjnrjz3uom3s7oq/etc/profile.d/conda.csh
 no change     /home/lpnquynh/.bashrc
 No action taken.
-Requirement already satisfied: numpy in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 1)) (1.22.3)
-Requirement already satisfied: scipy in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 2)) (1.10.1)
-Requirement already satisfied: tqdm in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 3)) (4.65.0)
-Requirement already satisfied: pandas in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 4)) (2.0.2)
-Requirement already satisfied: networkx in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 5)) (3.1)
-Requirement already satisfied: matplotlib in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 6)) (3.7.1)
-Requirement already satisfied: seaborn in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 7)) (0.12.2)
-Requirement already satisfied: tensorflow in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 8)) (2.12.0)
-Requirement already satisfied: torch in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from -r ../requirements.txt (line 9)) (2.0.1)
-Requirement already satisfied: python-dateutil>=2.8.2 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from pandas->-r ../requirements.txt (line 4)) (2.8.2)
-Requirement already satisfied: pytz>=2020.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from pandas->-r ../requirements.txt (line 4)) (2023.3)
-Requirement already satisfied: tzdata>=2022.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from pandas->-r ../requirements.txt (line 4)) (2023.3)
-Requirement already satisfied: contourpy>=1.0.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (1.0.7)
-Requirement already satisfied: cycler>=0.10 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (0.11.0)
-Requirement already satisfied: fonttools>=4.22.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (4.40.0)
-Requirement already satisfied: kiwisolver>=1.0.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (1.4.4)
-Requirement already satisfied: packaging>=20.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (23.1)
-Requirement already satisfied: pillow>=6.2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (9.5.0)
-Requirement already satisfied: pyparsing>=2.3.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (3.0.9)
-Requirement already satisfied: importlib-resources>=3.2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from matplotlib->-r ../requirements.txt (line 6)) (5.12.0)
-Requirement already satisfied: absl-py>=1.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.4.0)
-Requirement already satisfied: astunparse>=1.6.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.6.3)
-Requirement already satisfied: flatbuffers>=2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (23.5.26)
-Requirement already satisfied: gast<=0.4.0,>=0.2.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (0.4.0)
-Requirement already satisfied: google-pasta>=0.1.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (0.2.0)
-Requirement already satisfied: grpcio<2.0,>=1.24.3 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.54.2)
-Requirement already satisfied: h5py>=2.9.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (3.8.0)
-Requirement already satisfied: jax>=0.3.15 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (0.4.12)
-Requirement already satisfied: keras<2.13,>=2.12.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (2.12.0)
-Requirement already satisfied: libclang>=13.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (16.0.0)
-Requirement already satisfied: opt-einsum>=2.3.2 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (3.3.0)
-Requirement already satisfied: protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<5.0.0dev,>=3.20.3 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (4.23.2)
-Requirement already satisfied: setuptools in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (67.8.0)
-Requirement already satisfied: six>=1.12.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.16.0)
-Requirement already satisfied: tensorboard<2.13,>=2.12 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (2.12.3)
-Requirement already satisfied: tensorflow-estimator<2.13,>=2.12.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (2.12.0)
-Requirement already satisfied: termcolor>=1.1.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (2.3.0)
-Requirement already satisfied: typing-extensions>=3.6.6 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (4.6.3)
-Requirement already satisfied: wrapt<1.15,>=1.11.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (1.14.1)
-Requirement already satisfied: tensorflow-io-gcs-filesystem>=0.23.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorflow->-r ../requirements.txt (line 8)) (0.32.0)
-Requirement already satisfied: filelock in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (3.12.2)
-Requirement already satisfied: sympy in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (1.12)
-Requirement already satisfied: jinja2 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (3.1.2)
-Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.7.99 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.99)
-Requirement already satisfied: nvidia-cuda-runtime-cu11==11.7.99 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.99)
-Requirement already satisfied: nvidia-cuda-cupti-cu11==11.7.101 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.101)
-Requirement already satisfied: nvidia-cudnn-cu11==8.5.0.96 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (8.5.0.96)
-Requirement already satisfied: nvidia-cublas-cu11==11.10.3.66 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.10.3.66)
-Requirement already satisfied: nvidia-cufft-cu11==10.9.0.58 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (10.9.0.58)
-Requirement already satisfied: nvidia-curand-cu11==10.2.10.91 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (10.2.10.91)
-Requirement already satisfied: nvidia-cusolver-cu11==11.4.0.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.4.0.1)
-Requirement already satisfied: nvidia-cusparse-cu11==11.7.4.91 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.4.91)
-Requirement already satisfied: nvidia-nccl-cu11==2.14.3 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (2.14.3)
-Requirement already satisfied: nvidia-nvtx-cu11==11.7.91 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (11.7.91)
-Requirement already satisfied: triton==2.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from torch->-r ../requirements.txt (line 9)) (2.0.0)
-Requirement already satisfied: wheel in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from nvidia-cublas-cu11==11.10.3.66->torch->-r ../requirements.txt (line 9)) (0.38.4)
-Requirement already satisfied: cmake in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from triton==2.0.0->torch->-r ../requirements.txt (line 9)) (3.26.4)
-Requirement already satisfied: lit in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from triton==2.0.0->torch->-r ../requirements.txt (line 9)) (16.0.5.post0)
-Requirement already satisfied: zipp>=3.1.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from importlib-resources>=3.2.0->matplotlib->-r ../requirements.txt (line 6)) (3.15.0)
-Requirement already satisfied: ml-dtypes>=0.1.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from jax>=0.3.15->tensorflow->-r ../requirements.txt (line 8)) (0.2.0)
-Requirement already satisfied: importlib-metadata>=4.6 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from jax>=0.3.15->tensorflow->-r ../requirements.txt (line 8)) (6.6.0)
-Requirement already satisfied: google-auth<3,>=1.6.3 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (2.19.1)
-Requirement already satisfied: google-auth-oauthlib<1.1,>=0.5 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (1.0.0)
-Requirement already satisfied: markdown>=2.6.8 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (3.4.3)
-Requirement already satisfied: requests<3,>=2.21.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (2.31.0)
-Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (0.7.0)
-Requirement already satisfied: werkzeug>=1.0.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (2.3.6)
-Requirement already satisfied: MarkupSafe>=2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from jinja2->torch->-r ../requirements.txt (line 9)) (2.1.3)
-Requirement already satisfied: mpmath>=0.19 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from sympy->torch->-r ../requirements.txt (line 9)) (1.3.0)
-Requirement already satisfied: cachetools<6.0,>=2.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (5.3.1)
-Requirement already satisfied: pyasn1-modules>=0.2.1 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (0.3.0)
-Requirement already satisfied: rsa<5,>=3.1.4 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (4.9)
-Requirement already satisfied: urllib3<2.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (1.26.16)
-Requirement already satisfied: requests-oauthlib>=0.7.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth-oauthlib<1.1,>=0.5->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (1.3.1)
-Requirement already satisfied: charset-normalizer<4,>=2 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from requests<3,>=2.21.0->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (3.1.0)
-Requirement already satisfied: idna<4,>=2.5 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from requests<3,>=2.21.0->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (3.4)
-Requirement already satisfied: certifi>=2017.4.17 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from requests<3,>=2.21.0->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (2023.5.7)
-Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (0.5.0)
-Requirement already satisfied: oauthlib>=3.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<1.1,>=0.5->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (3.2.2)
-results after 1000000 iterations
-
-training set:
-MAE:   1.18 kcal/mol
-RMSE:  1.81 kcal/mol
-
-test set:
-MAE:   2.73 kcal/mol
-RMSE:  5.28 kcal/mol
+Load data
+Fold  0
+Fold 0.000000 - MAE: 107.036095
+Fold  1
+Fold 1.000000 - MAE: 68.371004
+Fold  2
+Fold 2.000000 - MAE: 78.199589
+Fold  3
+Fold 3.000000 - MAE: 79.453772
+Fold  4
+Fold 4.000000 - MAE: 90.519535

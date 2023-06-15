@@ -1,5 +1,14 @@
-import os,pickle,sys,numpy,nn,copy,scipy,scipy.io
+import copy
+import os
+import pickle
+import sys
+
+import nn
+import numpy
+import scipy
+import scipy.io
 from tqdm import tqdm
+
 # --------------------------------------------
 # Parameters
 # --------------------------------------------

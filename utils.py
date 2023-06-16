@@ -12,6 +12,32 @@ import torch
 from scipy.spatial.distance import pdist, squareform
 from tqdm import tqdm
 
+def process_data_gnn(datadir):
+    data = scipy.io.loadmat(datadir)
+    dataset = data['X']
+    folds = data['P']
+    label = data['T']
+    A_hat_list= np.zeros((len(dataset),23,23))
+    D_list=np.zeros((len(dataset),23,23))
+    print('Processing data')
+    for index, item in tqdm(enumerate(dataset)):
+        item = item.tolist()
+        A = np.zeros((23, 23))
+        for row in range(len(item)):
+            for col in range(len(item[row])):
+                if item[row][col] > 0.0:
+                    A[row][col] = 1
+        # Get degree matrix
+        A_hat = A + np.eye(23)
+        degree = []
+        for row in A_hat:
+            degree.append(row.sum())
+            D = np.diag(degree)
+        # Normalize
+        D = np.linalg.inv(np.linalg.cholesky(D))
+        A_hat_list[index] = A_hat
+        D_list[index] = D
+    return dataset,A_hat_list,D_list,folds,label
 
 def process_data(datadir):
     warnings.simplefilter("ignore")
@@ -106,3 +132,6 @@ def plot_loss(mae_scores_train, mae_scores_val, save_dir):
     # Save the plot to the specified directory
     plt.savefig(save_dir)
     plt.close()
+
+if __name__=="__main__":
+    process_data_gnn('data/qm7.mat')

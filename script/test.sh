@@ -10,7 +10,7 @@
 #SBATCH --mail-user=<YourNetID>@princeton.edu
 #Number of GPUs, this can be in the format of "gpu:[1-4]", or "gpu:K80:[1-4] with the type included
 #SBATCH --gres=gpu:1
-####SBATCH --nodelist=selab4
+#SBATCH --nodelist=selab4
 #SBATCH -otest.out
 #SBATCH -etest.err
 
@@ -28,6 +28,7 @@ source activate qm7
 ## TRAIN ##
 cd ..
 python train.py
+
 ## PREDICT
 
 ## TEST

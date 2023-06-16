@@ -2,7 +2,8 @@ import torch
 from torch.optim.lr_scheduler import MultiStepLR, StepLR
 
 from model.ml import *
-from utils import plot_loss, process_data
+from model.gnn import *
+from utils import plot_loss, process_data, process_data_gnn
 
 Y_SCALE_FACTOR = 2000.0
 
@@ -26,7 +27,7 @@ def train_ml():
 
 def train_mlp():
     # Load data
-    print("Load data")
+    print("Process data")
     datadir = "data/qm7.mat"
     data = process_data(datadir)
 
@@ -44,11 +45,11 @@ def train_mlp():
     new_id = 0
     if len(folders) > 0:
         for folder in folders:
-            if not folder.startswith("exp_"):
+            if not folder.startswith("mlp_exp_"):
                 continue
-            new_id = max(new_id, int(folder.split("exp_")[-1]))
+            new_id = max(new_id, int(folder.split("mlp_exp_")[-1]))
         new_id += 1
-    output_path = os.path.join(output_path, f"exp_{new_id}")
+    output_path = os.path.join(output_path, f"mlp_exp_{new_id}")
     os.makedirs(output_path)
     weights_path = os.path.join(output_path, "weights")
     os.mkdir(weights_path)
@@ -60,6 +61,10 @@ def train_mlp():
 
     # Set fixed random number seed
     torch.manual_seed(42)
+
+    # Create the log file
+    log_file_path = os.path.join(output_path, "mae_log.txt")
+    log_file = open(log_file_path, "w")
 
     for val_fold in range(n_folds):
         print("Fold ", val_fold)
@@ -97,10 +102,11 @@ def train_mlp():
 
         for epoch in tqdm(range(1, num_iterations + 1)):
             mlp.train()
-            optimizer.zero_grad()
+            
             train_mae = []
             for batch_start in range(0, len(X_train), mb):
-                batch_end = max(batch_start + mb, len(X_train) - 1)
+                optimizer.zero_grad()
+                batch_end = min(batch_start + mb, len(X_train) - 1)
                 X_batch = torch.Tensor(X_train[batch_start:batch_end]).to(device)
                 y_batch = (
                     torch.Tensor(y_train[batch_start:batch_end]).unsqueeze(1).to(device)
@@ -120,7 +126,7 @@ def train_mlp():
                 mlp.eval()
                 val_mae = []
                 for batch_start in range(0, len(X_val), mb):
-                    batch_end = max(batch_start + mb, len(X_val) - 1)
+                    batch_end = min(batch_start + mb, len(X_val) - 1)
                     X_batch = torch.Tensor(X_val[batch_start:batch_end]).to(device)
                     y_batch = (
                         torch.Tensor(y_val[batch_start:batch_end])
@@ -155,7 +161,180 @@ def train_mlp():
                         os.path.join(weights_path, f"mlp_model_best_{val_fold}.pt"),
                     )
         print("Fold {:f} - MAE: {:f}".format(val_fold, float(np.mean(val_mae_plot))))
+        # Write the MAE for the current fold to the log file
+        log_file.write("Fold {:f} - MAE| Train - {:f} | Val - {:f}\n".format(val_fold, float(np.mean(val_mae_plot)),float(np.mean(train_mae_plot))))
+        print("Fold {:f} - MAE: {:f}".format(val_fold, float(np.mean(val_mae_plot))))
+    log_file.close()
+    print("Training complete. MAE log file saved at: ", log_file_path)
+
+def train_gnn():
+    # Set fixed random number seed
+    torch.manual_seed(42)
+    
+    datadir='data/qm7.mat'
+    # Parameter
+    mb = 100
+    learning_rate = 1e-1
+    num_iterations = 100
+    eval_step=5
+    step_size=30 #steplr
+    gamma=0.8 #steplr
+    
+
+    dataset,A_hat,D,folds,label=process_data_gnn(datadir)
+     # Init model
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    n_folds = 5
+    # For fold results
+    results = {}
+
+    # Output folder
+    output_path = "exps"
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+    folders = os.listdir(output_path)
+    new_id = 0
+    if len(folders) > 0:
+        for folder in folders:
+            if not folder.startswith("gcn_exp_"):
+                continue
+            new_id = max(new_id, int(folder.split("gcn_exp_")[-1]))
+        new_id += 1
+    output_path = os.path.join(output_path, f"gcn_exp_{new_id}")
+    os.makedirs(output_path)
+    weights_path = os.path.join(output_path, "weights")
+    os.mkdir(weights_path)
+    visualize_path = os.path.join(output_path, "visualize")
+    os.mkdir(visualize_path)
+    output_path = output_path + "/"
+    visualize_path = visualize_path + "/"
+    weights_path = weights_path + "/"
+
+    # Create the log file
+    log_file_path = os.path.join(output_path, "mae_log.txt")
+    log_file = open(log_file_path, "w")
+    log_file.write("\nHyperparameters:\n")
+    log_file.write("Minibatch Size: {}\n".format(mb))
+    log_file.write("Learning Rate: {}\n".format(learning_rate))
+    log_file.write("Number of Iterations: {}\n".format(num_iterations))
+    log_file.write("Evaluation Step: {}\n".format(eval_step))
+    log_file.write("LR Step: {}\n".format(step_size))
+    log_file.write("LR Gamma: {}\n".format(gamma))
+    log_file.write("\n")
+
+    for val_fold in range(n_folds):
+        print("Fold ", val_fold)
+        val_idx = folds[val_fold].flatten()
+        train_idx = np.array(list(set(folds.flatten()) - set(val_idx)))
+       
+
+        X_train=dataset[train_idx]
+        X_val=dataset[val_idx]
+        y_train=label[0][train_idx]
+        y_val=label[0][val_idx]
+        A_hat_train=A_hat[train_idx]
+        A_hat_val=A_hat[val_idx]
+        D_train=D[train_idx]
+        D_val=D[val_idx]
+
+
+      
+        gcn=GCN(mb,device)
+        # Initialize optimizer
+        optimizer = torch.optim.AdamW([gcn.W1,gcn.W7,gcn.W8], lr=learning_rate)
+        criterion = nn.L1Loss()  # MAE
+
+        # Initialize the step scheduler
+        # scheduler = StepLR(optimizer, step_size=500, gamma=0.3333)
+        
+        scheduler = StepLR(optimizer, step_size=step_size, gamma=gamma)
+
+        # Initialize the step scheduler
+        best_mae = float("inf")
+        best_model = None
+
+        train_mae_plot = []
+        val_mae_plot = []
+
+        for epoch in tqdm(range(1, num_iterations + 1)):
+            gcn.train()
+            
+            train_mae = []
+            for batch_start in range(0, len(X_train), mb):
+                if batch_start + mb> len(X_train)-1:
+                    break
+                batch_end = batch_start + mb
+                X_batch = torch.Tensor(X_train[batch_start:batch_end]).to(device)
+                y_batch = (
+                    torch.Tensor(y_train[batch_start:batch_end]).view(mb,1).to(device)
+                )
+                A_hat_batch = torch.Tensor(A_hat_train[batch_start:batch_end]).to(device)
+                D_batch = (
+                    torch.Tensor(D_train[batch_start:batch_end]).to(device)
+                )
+
+                output = gcn(X_batch,A_hat_batch,D_batch)
+                optimizer.zero_grad()
+                loss = criterion(output, y_batch)
+                loss.backward()
+                optimizer.step()
+                scheduler.step()
+                train_mae.append(float(loss))
+
+            train_mae = np.mean(train_mae)
+            train_mae_plot.append(train_mae)
+
+            
+
+            if epoch % eval_step == 0:
+                gcn.eval()
+                val_mae = []
+                for val_batch_start in range(0, len(X_val), mb):
+                    with torch.no_grad():
+                        if val_batch_start + mb> len(X_val)-1:
+                            break
+                        val_batch_end = val_batch_start + mb
+                        val_X_batch = torch.Tensor(X_val[val_batch_start:val_batch_end]).to(device)
+                        val_y_batch = (
+                            torch.Tensor(y_val[val_batch_start:val_batch_end]).view(mb,1).to(device)
+                        )
+                        val_A_hat_batch = torch.Tensor(A_hat_val[val_batch_start:val_batch_end]).to(device)
+                        val_D_batch = (
+                            torch.Tensor(D_val[val_batch_start:val_batch_end]).to(device)
+                        )
+                        val_output = gcn(val_X_batch,val_A_hat_batch,val_D_batch)
+                        val_mae.append(
+                            float(
+                                criterion(val_output, val_y_batch)
+                            )
+                        )
+                val_mae = np.mean(val_mae)
+                val_mae_plot.append(val_mae)
+                plot_loss(
+                    train_mae_plot,
+                    val_mae_plot,
+                    os.path.join(visualize_path, f"fold_{val_fold}.png"),
+                )
+                torch.save(
+                    gcn.state_dict(),
+                    os.path.join(weights_path, f"gcn_model_last_{val_fold}.pt"),
+                )
+
+                # Check if current model has the best MAE
+                if val_mae < best_mae:
+                    best_mae = val_mae
+                    best_model = gcn.state_dict()
+                    torch.save(
+                        best_model,
+                        os.path.join(weights_path, f"gcn_model_best_{val_fold}.pt"),
+                    )
+        # Write the MAE for the current fold to the log file
+        log_file.write("Fold {:f} - MAE| Train - {:f} | Val - {:f}\n".format(val_fold, float(np.mean(val_mae_plot)),float(np.mean(train_mae_plot))))
+        print("Fold {:f} - MAE: {:f}".format(val_fold, float(np.mean(val_mae_plot))))
+    log_file.close()
+    print("Training complete. MAE log file saved at: ", log_file_path)
+
 
 
 if __name__ == "__main__":
-    train_mlp()
+    train_gnn()

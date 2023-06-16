@@ -10,7 +10,7 @@
 #SBATCH --mail-user=<YourNetID>@princeton.edu
 #Number of GPUs, this can be in the format of "gpu:[1-4]", or "gpu:K80:[1-4] with the type included
 #SBATCH --gres=gpu:1
-#SBATCH --nodelist=selab2
+#SBATCH --nodelist=selab4
 #SBATCH -otask.out
 #SBATCH -etask.err
 

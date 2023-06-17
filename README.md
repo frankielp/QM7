@@ -1,7 +1,5 @@
 # Quantum Mechanical Calculation Estimation
 
-This project demonstrates the training of a neural network model using PyTorch for a specific dataset.
-
 ## Description
 
 The goal of this project is to train a neural network model on the QM7 dataset and evaluate its performance using mean absolute error (MAE) as the evaluation metric. The project includes the implementation of Machine Learning models, MLP, GCN, data processing functions, and training procedures.

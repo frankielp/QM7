@@ -1,8 +1,4 @@
-import os
-
 import numpy as np  # linear algebra
-import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
-import torch
 import torch.nn as nn
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF
@@ -11,9 +7,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVR
-from tqdm import tqdm
-
-from utils import plot_loss, process_data
 
 Y_SCALE_FACTOR = 2000.0
 
@@ -23,13 +16,13 @@ class MLP(nn.Module):
         super(MLP, self).__init__()
         self.layers = nn.ModuleList()
         self.layers.append(nn.Linear(input_size, hidden_sizes[0]))
-        self.layers.append(nn.Sigmoid())
-        self.layers.append(nn.Dropout(0.2))
+        self.layers.append(nn.ReLU())
+        # self.layers.append(nn.Dropout(0.2))
 
         for i in range(len(hidden_sizes) - 1):
             self.layers.append(nn.Linear(hidden_sizes[i], hidden_sizes[i + 1]))
-            self.layers.append(nn.Sigmoid())
-            self.layers.append(nn.Dropout(0.2))
+            self.layers.append(nn.ReLU())
+            # self.layers.append(nn.Dropout(0.2))
 
         self.layers.append(nn.Linear(hidden_sizes[-1], output_size))
 
@@ -37,19 +30,6 @@ class MLP(nn.Module):
         for layer in self.layers:
             x = layer(x)
         return x
-
-
-def train_val_split(data, val_fold):
-    val_idx = data["P"][val_fold].flatten()
-    train_idx = np.array(list(set(data["P"].flatten()) - set(val_idx)))
-
-    X = np.concatenate((data["cm"], data["eigs"], data["centralities"]), axis=1)
-    y = data["T"][0] / Y_SCALE_FACTOR
-    X_train = X[train_idx]
-    y_train = y[train_idx]
-    X_val = X[val_idx]
-    y_val = y[val_idx]
-    return X_train, y_train, X_val, y_val
 
 
 def linear_regression(X_train, y_train, X_val, y_val):

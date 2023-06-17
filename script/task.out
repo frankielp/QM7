@@ -1,4 +1,4 @@
-Fri Jun 16 16:55:56 2023       
+Sat Jun 17 12:21:02 2023       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 515.105.01   Driver Version: 515.105.01   CUDA Version: 11.7     |
 |-------------------------------+----------------------+----------------------+
@@ -6,8 +6,8 @@ Fri Jun 16 16:55:56 2023
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
-|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0 Off |                  N/A |
-|  0%   45C    P8    20W / 250W |      1MiB / 11264MiB |      0%      Default |
+|   0  NVIDIA GeForce ...  On   | 00000000:02:00.0 Off |                  N/A |
+|  0%   43C    P8     8W / 250W |      1MiB / 11264MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -120,15 +120,5 @@ Requirement already satisfied: rsa<5,>=3.1.4 in /home/lpnquynh/.conda/envs/qm7/l
 Requirement already satisfied: requests-oauthlib>=0.7.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from google-auth-oauthlib<1.1,>=0.5->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (1.3.1)
 Requirement already satisfied: pyasn1<0.6.0,>=0.4.6 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (0.5.0)
 Requirement already satisfied: oauthlib>=3.0.0 in /home/lpnquynh/.conda/envs/qm7/lib/python3.9/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<1.1,>=0.5->tensorboard<2.13,>=2.12->tensorflow->-r ../requirements.txt (line 8)) (3.2.2)
-Processing data
+Process data
 Fold  0
-Fold 0.000000 - MAE: 136.806950
-Fold  1
-Fold 1.000000 - MAE: 140.601684
-Fold  2
-Fold 2.000000 - MAE: 138.918784
-Fold  3
-Fold 3.000000 - MAE: 137.090414
-Fold  4
-Fold 4.000000 - MAE: 141.766372
-Training complete. MAE log file saved at:  exps/gcn_exp_17/mae_log.txt

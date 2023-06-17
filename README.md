@@ -1,4 +1,7 @@
 # Quantum Mechanical Calculation Estimation
+<div align="center">
+  <img src="http://www.quantum-machine.org/images/scm.png" alt="Quantum Icon">
+</div>
 
 ## Description
 

@@ -4,7 +4,7 @@ This project demonstrates the training of a neural network model using PyTorch f
 
 ## Description
 
-The goal of this project is to train a neural network model on the QM7 dataset and evaluate its performance using mean absolute error (MAE) as the evaluation metric. The project includes the implementation of a multi-layer perceptron (MLP) model, data processing functions, and training procedures.
+The goal of this project is to train a neural network model on the QM7 dataset and evaluate its performance using mean absolute error (MAE) as the evaluation metric. The project includes the implementation of Machine Learning models, MLP, GCN, data processing functions, and training procedures.
 
 ## Dataset
 
@@ -51,17 +51,17 @@ The project consists of the following files and directories:
 4. Run the `train.py` script to train and evaluate the models.
 
    ```
-   python main.py --model <model_name> --data <data_type>
+   python train.py --model <model_name> --data <data_type>
    ```
 
    Replace `<model_name>` with the desired model: `linear_regression`, `gaussian_process_regression`, `kernel_ridge_regression`, `support_vector_regression`, or `mlp`.
 
-   Replace `<data_type>` with the desired data type for the MLP model: `eigenspectrum` (sorted data) or `random` (randomly shuffled data).
+   Replace `<data_type>` with the desired data type for the ML model: `eigenspectrum` (sorted data) or `random` (randomly shuffled data).
 
    Example:
 
    ```
-   python main.py --model mlp --data eigenspectrum
+   python train.py model=mlp data=eigenspectrum
    ```
 
    This command will train the MLP model on sorted eigenspectrum data.

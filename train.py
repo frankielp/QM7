@@ -1,5 +1,5 @@
 import os
-
+import sys
 import torch
 from torch.optim.lr_scheduler import MultiStepLR, StepLR
 from tqdm import tqdm
@@ -11,21 +11,34 @@ from utils import *
 Y_SCALE_FACTOR = 2000.0
 
 
-def train_ml():
+def train_ml(model,data):
     # Load data
     print("Load data")
     datadir = "data/qm7.mat"
-    data = process_data_sorted(datadir)
+    if data=="eigenspectrum":
+        data = process_data_sorted(datadir)
+    elif data=="random":
+        data = process_data_random(datadir)
     # Configure
     n_folds = 5
     mae = []
     for val_fold in tqdm(range(n_folds)):
-        X_train, y_train, X_val, y_val = train_val_split(data, val_fold, "sorted")
-        loss = kernel_ridge(X_train, y_train, X_val, y_val)
+        X_train, y_train, X_val, y_val = train_val_split(data, val_fold, data)
+        if model== "linear_regression":
+            loss = linear_regression(X_train, y_train, X_val, y_val)
+        elif model== "gaussian_process_regression":
+            loss = linear_regression(X_train, y_train, X_val, y_val)
+        elif model== "kernel_ridge_regression":
+            loss = kernel_ridge(X_train, y_train, X_val, y_val)
+        elif model=="support_vector_regression":
+            loss = svr(X_train, y_train, X_val, y_val)
+        else:
+            raise ValueError("Invalid model type!")
+            
         mae.append(loss)
         print("Fold {:f} - MAE: {:f}".format(val_fold, loss))
 
-    print("Final MAE: ", mae)
+    print("Final MAE: ", np.mean(mae))
 
 
 def train_mlp_sorted():
@@ -71,7 +84,7 @@ def train_mlp_sorted():
 
     for val_fold in range(n_folds):
         print("Fold ", val_fold)
-        X_train, y_train, X_val, y_val = train_val_split(data, val_fold, "sorted")
+        X_train, y_train, X_val, y_val = train_val_split(data, val_fold, "eigenspectrum")
 
         # num_iterations = 1000000
         # num_iterations = 50000
@@ -504,5 +517,27 @@ def train_gnn():
     print("Training complete. MAE log file saved at: ", log_file_path)
 
 
+def choose_model(arguments):
+    data=None
+    model=None
+
+    for args in arguments:
+        if args.startswith("model"):
+            model=args.split("=")[1]
+        
+        if args.startswith("data"):
+            data=args.split("=")[1]
+    
+    if model =="gcn":
+        train_gnn()
+    elif model =="mlp":
+        if data=="random":
+            train_mlp_random()
+        elif data=="eigenspectrum":
+            train_mlp_sorted()
+    else:
+        train_ml(model,data)
+
+ 
 if __name__ == "__main__":
-    train_mlp_random()
+    choose_model(sys.argv)

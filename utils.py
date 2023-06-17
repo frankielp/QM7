@@ -184,7 +184,7 @@ def train_val_split(data, val_fold, option):
 
     if option == "random":
         X = data["X"]
-    elif option == "sorted":
+    elif option == "eigenspectrum":
         X = np.concatenate((data["cm"], data["eigs"], data["centralities"]), axis=1)
     y = data["T"][0] / Y_SCALE_FACTOR
     X_train = X[train_idx]

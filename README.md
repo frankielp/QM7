@@ -20,6 +20,16 @@ The project requires the following dependencies:
 - Matplotlib
 - tqdm
 
+## Project Structure
+
+The project consists of the following files and directories:
+
+- `model/gnn.py`: Contains the GNN (Graph Neural Network) model implementation.
+- `model/ml.py`: Contains the ML (Machine Learning) model implementations, including linear regression, Gaussian process regression, kernel ridge regression, and support vector regression.
+- `utils.py`: Contains utility functions for data preprocessing and visualization.
+- `data/qm7.mat`: The input dataset in MATLAB format.
+- `exps/`: Output directory for experiment results, including weights and visualization plots.
+
 ## Usage
 
 1. Clone the repository:
@@ -38,22 +48,43 @@ The project requires the following dependencies:
 
    - Place the QM7 dataset file ('qm7.mat') in the 'data/' directory.
 
-4. Train the MLP model:
+4. Run the `train.py` script to train and evaluate the models.
 
    ```
-   python train.py
+   python main.py --model <model_name> --data <data_type>
    ```
 
-   The training script will train the MLP model on the QM7 dataset using a step-like learning rate schedule. The trained models and loss plots will be saved in the 'model/weight/' and 'model/plot/' directories, respectively.
+   Replace `<model_name>` with the desired model: `linear_regression`, `gaussian_process_regression`, `kernel_ridge_regression`, `support_vector_regression`, or `mlp`.
 
-## Results
+   Replace `<data_type>` with the desired data type for the MLP model: `eigenspectrum` (sorted data) or `random` (randomly shuffled data).
 
-The results of the training process will be displayed during the training and saved in the 'model/plot/' directory. The MAE scores for each fold and the final MAE score will be printed to the console.
+   Example:
+
+   ```
+   python main.py --model mlp --data eigenspectrum
+   ```
+
+   This command will train the MLP model on sorted eigenspectrum data.
+
+5. The trained models and evaluation results will be saved in the `exps` directory. 
+
+- The weights and loss plots will be saved in the 'model_exp_version/weight/' and 'model_exp_version/visualize/' directories, respectively.
+
+- The experiment results, including the MAE for each fold and the training log, will be saved in the `exps/mae_log.txt` file.
+
+## Notes
+
+- Some models requires CUDA-compatible GPUs for faster training. If CUDA is not available, the model will be trained on the CPU.
+
+- The MLP and GNN model training process may take a long time, depending on the size of the dataset and the number of iterations. The current configuration uses 5-fold cross-validation and 50000 iterations.
+
+- The MAE (Mean Absolute Error) for each fold and the final MAE will be printed after the training process is complete.
+
+## Acknowledgements
+
+This project uses the [QM7](http://quantum-machine.org/datasets/) dataset. For more information about the dataset, refer to the original source.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License. See the `LICENSE` file for more information.
 
-```
-
-You can customize the content based on your project's specific details and requirements.

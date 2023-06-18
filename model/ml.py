@@ -3,7 +3,7 @@ import torch.nn as nn
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF
 from sklearn.kernel_ridge import KernelRidge
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression,Ridge
 from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVR
@@ -17,12 +17,12 @@ class MLP(nn.Module):
         self.layers = nn.ModuleList()
         self.layers.append(nn.Linear(input_size, hidden_sizes[0]))
         self.layers.append(nn.ReLU())
-        self.layers.append(nn.Dropout(0.2))
+        # self.layers.append(nn.Dropout(0.2))
 
         for i in range(len(hidden_sizes) - 1):
             self.layers.append(nn.Linear(hidden_sizes[i], hidden_sizes[i + 1]))
             self.layers.append(nn.ReLU())
-            self.layers.append(nn.Dropout(0.2))
+            # self.layers.append(nn.Dropout(0.2))
 
         self.layers.append(nn.Linear(hidden_sizes[-1], output_size))
 
@@ -33,7 +33,7 @@ class MLP(nn.Module):
 
 
 def linear_regression(X_train, y_train, X_val, y_val):
-    model = LinearRegression()
+    model = Ridge(alpha=.5)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_val)
     loss = mean_absolute_error(y_val * Y_SCALE_FACTOR, y_pred * Y_SCALE_FACTOR)

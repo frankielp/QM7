@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=valml        # create a short name for your job
+#SBATCH --job-name=eig        # create a short name for your job
 #SBATCH --nodes=1                # node count
 #SBATCH --ntasks=1               # total number of tasks across all nodes
 #SBATCH --cpus-per-task=4       # cpu-cores per task (>1 if multi-threaded tasks)
@@ -10,7 +10,7 @@
 #SBATCH --mail-user=<YourNetID>@princeton.edu
 #Number of GPUs, this can be in the format of "gpu:[1-4]", or "gpu:K80:[1-4] with the type included
 #SBATCH --gres=gpu:1
-#######SBATCH --nodelist=selab4
+#SBATCH --nodelist=selab4
 #SBATCH -otest.out
 #SBATCH -etest.err
 
@@ -27,7 +27,8 @@ conda init bash
 source activate qm7
 ## TRAIN ##
 cd ..
-python train.py
+python train.py model=mlp data=eigenspectrum
+
 
 ## PREDICT
 

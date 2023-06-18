@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=testbaseml        # create a short name for your job
+#SBATCH --job-name=rand        # create a short name for your job
 #SBATCH --nodes=1                # node count
 #SBATCH --ntasks=1               # total number of tasks across all nodes
 #SBATCH --cpus-per-task=4       # cpu-cores per task (>1 if multi-threaded tasks)
@@ -28,8 +28,17 @@ source activate qm7
 pip install -r ../requirements.txt
 ## TRAIN ##
 cd ..
-python train.py
+# python train.py model=linear_regression data=random
+# python train.py model=gaussian_process_regression data=random
+# python train.py model=kernel_ridge_regression data=random
+# python train.py model=support_vector_regression data=random
+
+# python train.py model=linear_regression data=eigenspectrum
+# python train.py model=gaussian_process_regression data=eigenspectrum
+# python train.py model=kernel_ridge_regression data=eigenspectrum
+# python train.py model=support_vector_regression data=eigenspectrum
 ## PREDICT
+python train.py model=mlp data=random
 
 ## TEST
 
